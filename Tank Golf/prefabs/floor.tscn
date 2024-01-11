@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://di3eqk5fmyn3j"]
+
+[ext_resource type="Texture2D" uid="uid://c78i4svgpk7gb" path="res://sprites/grass.png" id="1_wbyuu"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_ismrh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_51fp5"]
+size = Vector2(9.995, 9.99)
+
+[node name="floor" type="Node2D"]
+scale = Vector2(100, 100)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+scale = Vector2(10, 10)
+mesh = SubResource("QuadMesh_ismrh")
+texture = ExtResource("1_wbyuu")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(-0.05, 0.0299997)
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0.0525002, -0.0249999)
+shape = SubResource("RectangleShape2D_51fp5")

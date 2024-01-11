@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=3 uid="uid://8s06ou8n77k0"]
+
+[ext_resource type="PackedScene" uid="uid://32dqc8xtmm7x" path="res://prefabs/tank.tscn" id="1_py52u"]
+[ext_resource type="PackedScene" uid="uid://dtjqg23qj7ud3" path="res://prefabs/hole.tscn" id="1_ymlti"]
+[ext_resource type="PackedScene" uid="uid://r3tiuge4bfsw" path="res://prefabs/levels/demo level.tscn" id="2_j6b8n"]
+[ext_resource type="PackedScene" uid="uid://cx5p0qorxqwar" path="res://prefabs/ball.tscn" id="3_jracu"]
+[ext_resource type="Script" path="res://scripts/camera.gd" id="5_08liv"]
+
+[node name="game" type="Node2D"]
+
+[node name="hole" parent="." instance=ExtResource("1_ymlti")]
+position = Vector2(239, 99)
+
+[node name="tank" parent="." instance=ExtResource("1_py52u")]
+position = Vector2(0, -611)
+
+[node name="ball" parent="." instance=ExtResource("3_jracu")]
+position = Vector2(-5000, -5000)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("5_08liv")
+
+[node name="level" parent="." instance=ExtResource("2_j6b8n")]

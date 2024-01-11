@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3 uid="uid://dtjqg23qj7ud3"]
+
+[ext_resource type="Texture2D" uid="uid://bh0kgbv2mpn4f" path="res://sprites/hole.png" id="1_iqr0l"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_yb30d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d5scm"]
+resource_local_to_scene = true
+size = Vector2(100, 200)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_absc8"]
+size = Vector2(100, 100)
+
+[node name="hole" type="Node2D"]
+position = Vector2(-100, -50)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+position = Vector2(-100, -50)
+scale = Vector2(100, 100)
+mesh = SubResource("QuadMesh_yb30d")
+texture = ExtResource("1_iqr0l")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="."]
+position = Vector2(100, -50)
+scale = Vector2(100, 100)
+mesh = SubResource("QuadMesh_yb30d")
+texture = ExtResource("1_iqr0l")
+
+[node name="MeshInstance2D3" type="MeshInstance2D" parent="."]
+position = Vector2(0, 50)
+scale = Vector2(300, 100)
+mesh = SubResource("QuadMesh_yb30d")
+texture = ExtResource("1_iqr0l")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(-100, -50)
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 50)
+shape = SubResource("RectangleShape2D_d5scm")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(200, 50)
+shape = SubResource("RectangleShape2D_d5scm")
+
+[node name="bottom" type="StaticBody2D" parent="."]
+position = Vector2(-100, -50)
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bottom"]
+position = Vector2(100, 100)
+shape = SubResource("RectangleShape2D_absc8")
