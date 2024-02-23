@@ -1,0 +1,50 @@
+[gd_scene load_steps=9 format=3 uid="uid://32dqc8xtmm7x"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_mdwrw"]
+[ext_resource type="Texture2D" uid="uid://c5lrju1tm1dnp" path="res://sprites/mushroom.png" id="2_dc7k7"]
+[ext_resource type="Texture2D" uid="uid://dllri6ixrnvvy" path="res://sprites/mushroom_club.png" id="3_34tft"]
+[ext_resource type="Script" path="res://scripts/trajectory.gd" id="4_qx7xd"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_m68ev"]
+size = Vector2(100, 100)
+
+[sub_resource type="Curve" id="Curve_nw0ab"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.5), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_xn36w"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="QuadMesh" id="QuadMesh_sfbb5"]
+size = Vector2(100, 100)
+
+[node name="player" type="Node2D"]
+script = ExtResource("1_mdwrw")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+z_as_relative = false
+texture_filter = 1
+rotation = -3.14159
+mesh = SubResource("QuadMesh_m68ev")
+texture = ExtResource("2_dc7k7")
+
+[node name="ball_source" type="Node2D" parent="."]
+position = Vector2(0, 35)
+
+[node name="trajectory" type="Line2D" parent="."]
+width_curve = SubResource("Curve_nw0ab")
+gradient = SubResource("Gradient_xn36w")
+joint_mode = 2
+begin_cap_mode = 1
+end_cap_mode = 2
+script = ExtResource("4_qx7xd")
+
+[node name="club" type="Node2D" parent="."]
+position = Vector2(-2.86892e-06, 19)
+rotation = 1.5708
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="club"]
+texture_filter = 1
+position = Vector2(0, 19)
+mesh = SubResource("QuadMesh_sfbb5")
+texture = ExtResource("3_34tft")

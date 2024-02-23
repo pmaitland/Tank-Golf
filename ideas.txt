@@ -1,0 +1,49 @@
+theme
+	enchanted toadstool forest
+
+characters
+	each do different things?
+	toadstool
+		like maple story
+	cat
+		neckerchief
+	owl
+	frog
+		sleepy
+	robot
+		cute
+	goblin
+	mice (3? 4?)
+		stand on top of each other?
+		stand next to each other and hit multiple balls?
+			code isnt ready for more than one ball
+			if any ball get in the hole, you win
+			take next shot from ball furthest from hole
+	someone who floats with magic
+		witch?
+		gravity doesn't effect ball?
+		gravity doesnt effect player?
+
+balls
+	rubber duck
+	peach
+	pepper
+	brie
+	toadstool
+	golden nugget
+	gemstone(s)
+		different colours
+	yarn (cat)
+	egg (duck)
+	cog (robot)
+
+level features
+	bounce pads
+		mushrooms?
+	wind
+		constant effect?
+		area of effect?
+			leaves blowing to show where it is?
+			or just "air lines"?
+	moving platforms
+		would this mess with working out when the ball is stationary?

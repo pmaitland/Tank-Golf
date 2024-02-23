@@ -4,10 +4,9 @@
 [ext_resource type="Script" path="res://scripts/ball.gd" id="1_by5je"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cmshy"]
-radius = 12.5
+radius = 4.9975
 
 [sub_resource type="QuadMesh" id="QuadMesh_ismrh"]
-size = Vector2(25, 25)
 
 [node name="ball" type="CharacterBody2D"]
 collision_layer = 2
@@ -15,9 +14,11 @@ collision_mask = 2
 script = ExtResource("1_by5je")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(2.5, 2.5)
 shape = SubResource("CircleShape2D_cmshy")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
 texture_filter = 1
+scale = Vector2(25, 25)
 mesh = SubResource("QuadMesh_ismrh")
 texture = ExtResource("1_5ejyl")

@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://b7jsjh2ajjjkr"]
+
+[ext_resource type="Script" path="res://scripts/trajectory.gd" id="1_f0nye"]
+
+[sub_resource type="Curve" id="Curve_4cjdp"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.5), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_dh7rr"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[node name="trajectory" type="Line2D"]
+position = Vector2(75, 0)
+points = PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+width_curve = SubResource("Curve_4cjdp")
+gradient = SubResource("Gradient_dh7rr")
+joint_mode = 2
+end_cap_mode = 2
+script = ExtResource("1_f0nye")

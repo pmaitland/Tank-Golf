@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=3 uid="uid://32dqc8xtmm7x"]
+
+[ext_resource type="Script" path="res://scripts/tank.gd" id="1_mdwrw"]
+[ext_resource type="Texture2D" uid="uid://7sbxr47ck6w7" path="res://sprites/tank.png" id="2_yneud"]
+[ext_resource type="Texture2D" uid="uid://bfnk5uprdlno" path="res://sprites/gun.png" id="4_ap8ja"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_trxnp"]
+radius = 0.5
+height = 1.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_m68ev"]
+
+[node name="tank" type="CharacterBody2D"]
+scale = Vector2(100, 100)
+floor_snap_length = 10.0
+script = ExtResource("1_mdwrw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_trxnp")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+z_as_relative = false
+texture_filter = 1
+rotation = 3.14159
+mesh = SubResource("QuadMesh_m68ev")
+texture = ExtResource("2_yneud")
+
+[node name="gun" type="Node2D" parent="."]
+position = Vector2(0, -0.125)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="gun"]
+z_as_relative = false
+texture_filter = 1
+position = Vector2(0.375, 0)
+rotation = 3.14159
+scale = Vector2(0.75, 0.25)
+mesh = SubResource("QuadMesh_m68ev")
+texture = ExtResource("4_ap8ja")
+
+[node name="end" type="Node2D" parent="gun"]
+position = Vector2(0.75, 0)
+
+[node name="trajectory" type="Node2D" parent="."]
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="trajectory"]
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="trajectory"]
+
+[node name="MeshInstance2D3" type="MeshInstance2D" parent="trajectory"]
+
+[node name="MeshInstance2D4" type="MeshInstance2D" parent="trajectory"]
+
+[node name="MeshInstance2D5" type="MeshInstance2D" parent="trajectory"]
