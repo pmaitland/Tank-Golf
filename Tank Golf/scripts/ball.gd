@@ -25,9 +25,12 @@ func _physics_process(delta):
 		
 	var collision_info = move_and_collide(velocity * delta)
 	if collision_info:
+		var bounce_dampening = 0.85
+		if collision_info.get_collider().name == "sand":
+			bounce_dampening = 0.25
 		var bounce_velocity = velocity.bounce(collision_info.get_normal())
-		if bounce_velocity.length() * 0.85 < bounce_velocity.length() - 10:
-			velocity = bounce_velocity * 0.85
+		if bounce_velocity.length() * bounce_dampening < bounce_velocity.length() - 10:
+			velocity = bounce_velocity * bounce_dampening
 		else:
 			if velocity.x > 0:
 				velocity = Vector2(min(0, bounce_velocity.x + 10), max(0, bounce_velocity.y - 10))
