@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dlmfojkwi718c"]
+[gd_scene load_steps=6 format=3 uid="uid://dlmfojkwi718c"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_mghr3"]
 [ext_resource type="PackedScene" uid="uid://cpqc0oo3xhkxg" path="res://prefabs/levels/level_wallclimb.tscn" id="2_cad4h"]
 [ext_resource type="TileSet" uid="uid://cmwo4mfumr6g" path="res://dirt.tres" id="3_hb8sq"]
+[ext_resource type="PackedScene" uid="uid://dspkivk713dic" path="res://prefabs/star.tscn" id="4_qapwf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_324qt"]
 size = Vector2(1470, 191)
@@ -48,6 +49,9 @@ position = Vector2(-700, 256)
 
 [node name="hole_pos" type="Node2D" parent="."]
 position = Vector2(1280, 352)
+
+[node name="star" parent="." instance=ExtResource("4_qapwf")]
+position = Vector2(1275, -11)
 
 [node name="flyby" type="Node2D" parent="."]
 

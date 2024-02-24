@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://d0v1tbb6dwmcx"]
+[gd_scene load_steps=5 format=3 uid="uid://d0v1tbb6dwmcx"]
 
 [ext_resource type="TileSet" uid="uid://cmwo4mfumr6g" path="res://dirt.tres" id="1_7oxrt"]
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_esrr2"]
 [ext_resource type="PackedScene" uid="uid://dlmfojkwi718c" path="res://prefabs/levels/level_pond.tscn" id="2_78wrh"]
+[ext_resource type="PackedScene" uid="uid://dspkivk713dic" path="res://prefabs/star.tscn" id="4_26kll"]
 
 [node name="level" type="Node2D"]
 script = ExtResource("1_esrr2")
@@ -33,6 +34,9 @@ position = Vector2(-700, 256)
 
 [node name="hole_pos" type="Node2D" parent="."]
 position = Vector2(1280, 224)
+
+[node name="star" parent="." instance=ExtResource("4_26kll")]
+position = Vector2(291, -200)
 
 [node name="flyby" type="Node2D" parent="."]
 

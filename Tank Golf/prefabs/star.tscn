@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://dspkivk713dic"]
+
+[ext_resource type="Texture2D" uid="uid://co56qdcoolvpu" path="res://sprites/star.png" id="1_0n2hy"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_wkgdr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3b42i"]
+radius = 0.600083
+
+[node name="star" type="Node2D"]
+scale = Vector2(100, 100)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -0.07)
+rotation = 3.14159
+mesh = SubResource("QuadMesh_wkgdr")
+texture = ExtResource("1_0n2hy")
+
+[node name="star" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="star"]
+shape = SubResource("CircleShape2D_3b42i")

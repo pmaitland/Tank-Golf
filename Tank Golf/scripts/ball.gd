@@ -30,6 +30,8 @@ func _physics_process(delta):
 		if a.name == "water area":
 			resistance = 0.895
 			in_water = true
+		elif a.name == "star":
+			game.level.collect_star()
 		
 	velocity.y += gravity * delta
 	velocity *= resistance
@@ -60,7 +62,7 @@ func _physics_process(delta):
 		stationary_timer += 1
 		if stationary_timer > stationary_timer_limit:
 			if collision_info and collision_info.get_collider().name == "hole_bottom":
-				game.go_next_level()
+				game.finish_level()
 			else:
 				if not in_water:
 					player.global_position = global_position

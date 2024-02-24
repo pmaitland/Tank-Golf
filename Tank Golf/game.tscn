@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://covjv25ud61ut"]
+[gd_scene load_steps=12 format=3 uid="uid://covjv25ud61ut"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_g2xox"]
 [ext_resource type="PackedScene" uid="uid://32dqc8xtmm7x" path="res://prefabs/player.tscn" id="1_py52u"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://cx5p0qorxqwar" path="res://prefabs/ball.tscn" id="3_jracu"]
 [ext_resource type="Script" path="res://scripts/camera.gd" id="5_08liv"]
 [ext_resource type="Script" path="res://scripts/trail.gd" id="5_dndwn"]
+[ext_resource type="Texture2D" uid="uid://cop7g6gse0eby" path="res://sprites/empty_star.png" id="8_i2k2a"]
+[ext_resource type="Texture2D" uid="uid://co56qdcoolvpu" path="res://sprites/star.png" id="8_niqtc"]
 
 [sub_resource type="Curve" id="Curve_aq1o6"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 1.4, 0.0, 0, 0]
@@ -43,14 +45,117 @@ script = ExtResource("5_08liv")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="par" type="Label" parent="CanvasLayer"]
+[node name="level ui" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
 offset_right = 40.0
-offset_bottom = 23.0
+offset_bottom = 40.0
+
+[node name="par" type="Label" parent="CanvasLayer/level ui"]
+layout_mode = 0
+offset_right = 44.0
+offset_bottom = 26.0
 text = "Par: 1"
 
-[node name="shots" type="Label" parent="CanvasLayer"]
+[node name="shots" type="Label" parent="CanvasLayer/level ui"]
+layout_mode = 0
 offset_left = 1.0
 offset_top = 26.0
 offset_right = 62.0
 offset_bottom = 52.0
 text = "Shots: 0"
+
+[node name="level end ui" type="Control" parent="CanvasLayer"]
+visible = false
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 100.0
+offset_right = 20.0
+offset_bottom = 140.0
+grow_horizontal = 2
+
+[node name="nice hole!" type="Label" parent="CanvasLayer/level end ui"]
+layout_mode = 0
+offset_left = -14.0
+offset_top = 4.0
+offset_right = 60.0
+offset_bottom = 30.0
+text = "nice hole!"
+
+[node name="par" type="Label" parent="CanvasLayer/level end ui"]
+layout_mode = 0
+offset_left = -59.0
+offset_top = 68.0
+offset_right = -15.0
+offset_bottom = 94.0
+text = "Par: 1"
+
+[node name="shots" type="Label" parent="CanvasLayer/level end ui"]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 69.0
+offset_right = 110.0
+offset_bottom = 95.0
+text = "Shots: 0"
+
+[node name="continue" type="Label" parent="CanvasLayer/level end ui"]
+layout_mode = 0
+offset_left = -67.0
+offset_top = 429.0
+offset_right = 116.0
+offset_bottom = 455.0
+text = "press space to continue"
+
+[node name="star 1 empty" type="TextureRect" parent="CanvasLayer/level end ui"]
+layout_mode = 0
+offset_left = -68.0
+offset_top = 162.0
+offset_right = -28.0
+offset_bottom = 194.0
+texture = ExtResource("8_i2k2a")
+
+[node name="star 2 empty" type="TextureRect" parent="CanvasLayer/level end ui"]
+layout_mode = 0
+offset_left = -2.0
+offset_top = 146.0
+offset_right = 38.0
+offset_bottom = 178.0
+texture = ExtResource("8_i2k2a")
+
+[node name="star 3 empty" type="TextureRect" parent="CanvasLayer/level end ui"]
+layout_mode = 0
+offset_left = 61.0
+offset_top = 160.0
+offset_right = 101.0
+offset_bottom = 192.0
+texture = ExtResource("8_i2k2a")
+
+[node name="star 1" type="TextureRect" parent="CanvasLayer/level end ui"]
+visible = false
+layout_mode = 0
+offset_left = -68.0
+offset_top = 162.0
+offset_right = -28.0
+offset_bottom = 194.0
+texture = ExtResource("8_niqtc")
+
+[node name="star 2" type="TextureRect" parent="CanvasLayer/level end ui"]
+visible = false
+layout_mode = 0
+offset_left = -2.0
+offset_top = 146.0
+offset_right = 38.0
+offset_bottom = 178.0
+texture = ExtResource("8_niqtc")
+
+[node name="star 3" type="TextureRect" parent="CanvasLayer/level end ui"]
+visible = false
+layout_mode = 0
+offset_left = 61.0
+offset_top = 160.0
+offset_right = 101.0
+offset_bottom = 192.0
+texture = ExtResource("8_niqtc")
