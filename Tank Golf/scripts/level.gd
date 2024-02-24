@@ -1,8 +1,12 @@
 extends Node2D
 
+@export var par: int
 @export var next_level_scene: PackedScene
 
 func _ready():
+	get_parent().find_child("CanvasLayer").find_child("par").text = "Par: {par}".format({"par": par})
+	get_parent().find_child("player").set_shots(0)
+	
 	var player_pos = find_child("player_pos")
 	var player = get_parent().find_child("player")
 	player.global_position = player_pos.position

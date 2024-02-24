@@ -40,3 +40,17 @@ position = Vector2(-1922, -1704)
 
 [node name="camera" type="Camera2D" parent="."]
 script = ExtResource("5_08liv")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="par" type="Label" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Par: 1"
+
+[node name="shots" type="Label" parent="CanvasLayer"]
+offset_left = 1.0
+offset_top = 26.0
+offset_right = 62.0
+offset_bottom = 52.0
+text = "Shots: 0"

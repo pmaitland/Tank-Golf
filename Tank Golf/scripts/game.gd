@@ -3,6 +3,7 @@ extends Node2D
 var level: Node2D
 
 func _ready():
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	level = get_child(0)
 
 func go_next_level():

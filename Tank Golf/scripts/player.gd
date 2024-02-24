@@ -9,6 +9,7 @@ var club: Node2D
 var ball: CharacterBody2D
 
 var can_act: bool = false
+var shots: int = 0
 
 func _ready():
 	ball_source = find_child("ball_source")
@@ -36,3 +37,8 @@ func _physics_process(delta):
 			ball.velocity = ball_velocity
 			trajectory.hide()
 			can_act = false
+			set_shots(shots + 1)
+			
+func set_shots(value: int):
+	shots = value
+	get_parent().find_child("CanvasLayer").find_child("shots").text = "Shots: {shots}".format({"shots": shots})
