@@ -26,10 +26,14 @@ func _physics_process(delta):
 	var collision_info = move_and_collide(velocity * delta)
 	if collision_info:
 		var bounce_dampening = 0.85
+		var boosting = false
 		if collision_info.get_collider().name == "sand":
 			bounce_dampening = 0.25
+		elif collision_info.get_collider().name == "mushroom":
+			bounce_dampening = 1.5
+			boosting = true
 		var bounce_velocity = velocity.bounce(collision_info.get_normal())
-		if bounce_velocity.length() * bounce_dampening < bounce_velocity.length() - 10:
+		if boosting or bounce_velocity.length() * bounce_dampening < bounce_velocity.length() - 10:
 			velocity = bounce_velocity * bounce_dampening
 		else:
 			if velocity.x > 0:
