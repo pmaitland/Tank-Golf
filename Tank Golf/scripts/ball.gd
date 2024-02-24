@@ -21,10 +21,18 @@ func _physics_process(delta):
 		return
 		
 	velocity.y += gravity * delta
+	velocity *= 0.995
 		
 	var collision_info = move_and_collide(velocity * delta)
 	if collision_info:
-		velocity = velocity.bounce(collision_info.get_normal()) * Vector2(0.99, 0.7)
+		var bounce_velocity = velocity.bounce(collision_info.get_normal())
+		if bounce_velocity.length() * 0.85 < bounce_velocity.length() - 10:
+			velocity = bounce_velocity * 0.85
+		else:
+			if velocity.x > 0:
+				velocity = Vector2(min(0, bounce_velocity.x + 10), max(0, bounce_velocity.y - 10))
+			else:
+				velocity = Vector2(max(0, bounce_velocity.x - 10), max(0, bounce_velocity.y - 10))
 		
 	trail.update_trail(global_position)
 	

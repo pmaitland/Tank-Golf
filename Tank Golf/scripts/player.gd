@@ -28,7 +28,7 @@ func _physics_process(delta):
 			
 	if can_act:
 		ball_source.look_at(mouse_position)
-		var ball_velocity = (mouse_position - ball_source.global_position) * 3
+		var ball_velocity = (mouse_position - ball_source.global_position).normalized() * clampf((mouse_position - ball_source.global_position).length() * 2, -2000, 2000)
 		trajectory.update_trajectory(ball_source.global_position, ball_velocity, gravity, delta)
 		
 		if Input.is_action_just_pressed("ui_accept"):

@@ -7,4 +7,5 @@ func update_trajectory(start: Vector2, velocity: Vector2, gravity: float, delta:
 	for i in max_points:
 		add_point(pos)
 		velocity.y += gravity * delta
+		velocity *= 0.995
 		pos += velocity * delta

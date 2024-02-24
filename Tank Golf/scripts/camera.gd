@@ -13,6 +13,7 @@ func _ready():
 	
 func _physics_process(_delta):
 	if doing_flyby:
+		zoom = Vector2.ONE * 2
 		player.can_act = false
 		global_position = global_position.move_toward(flyby_points[current_flyby_point_index].global_position, 10)
 		if global_position.distance_to(flyby_points[current_flyby_point_index].global_position) < 10:
@@ -25,14 +26,14 @@ func _physics_process(_delta):
 	else:
 		if player.can_act:
 			global_position = player.global_position
-			var zoom_level = abs((get_viewport().size / 2.0) - get_viewport().get_mouse_position()) / 100.0
+			var zoom_level = abs((get_viewport().size / 2.0) - get_viewport().get_mouse_position()) / 1000.0
 			if zoom_level.x != 0:
 				zoom_level.x = 1 / zoom_level.x
 			if zoom_level.y != 0:
 				zoom_level.y = 1 / zoom_level.y
-			zoom_level.x = clamp(min(zoom_level.x, zoom_level.y), 0.5, 2)
+			zoom_level.x = clamp(min(zoom_level.x, zoom_level.y), 1, 4)
 			zoom_level.y = zoom_level.x
 			zoom = zoom.lerp(zoom_level, 0.1)
 		else:
 			global_position = ball.global_position
-			zoom = Vector2.ONE * 1.5
+			zoom = Vector2.ONE * 2

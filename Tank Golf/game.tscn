@@ -20,11 +20,11 @@ script = ExtResource("1_g2xox")
 
 [node name="level" parent="." instance=ExtResource("2_d6poq")]
 
-[node name="player" parent="." instance=ExtResource("1_py52u")]
-position = Vector2(-1641, -1713)
-
 [node name="hole" parent="." instance=ExtResource("1_ymlti")]
 position = Vector2(-1277, -1686)
+
+[node name="player" parent="." instance=ExtResource("1_py52u")]
+position = Vector2(-1641, -1713)
 
 [node name="trail" type="Line2D" parent="."]
 width = 15.0
