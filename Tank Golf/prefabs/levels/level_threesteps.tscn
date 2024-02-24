@@ -1,12 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://bqsaex02t4ev0"]
+[gd_scene load_steps=3 format=3 uid="uid://bqsaex02t4ev0"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_87jw6"]
 [ext_resource type="TileSet" uid="uid://cmwo4mfumr6g" path="res://dirt.tres" id="2_1t83w"]
-[ext_resource type="PackedScene" uid="uid://cpqc0oo3xhkxg" path="res://prefabs/levels/level_wallclimb.tscn" id="2_jecbm"]
 
 [node name="level" type="Node2D"]
 script = ExtResource("1_87jw6")
-next_level_scene = ExtResource("2_jecbm")
 
 [node name="background" type="TileMap" parent="."]
 modulate = Color(0.647059, 0.647059, 0.647059, 1)
