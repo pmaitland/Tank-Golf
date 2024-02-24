@@ -40,6 +40,8 @@ func _physics_process(delta):
 				velocity = Vector2(min(0, bounce_velocity.x + 10), max(0, bounce_velocity.y - 10))
 			else:
 				velocity = Vector2(max(0, bounce_velocity.x - 10), max(0, bounce_velocity.y - 10))
+				
+	velocity = velocity.clamp(Vector2.ONE*-1500, Vector2.ONE*1500)
 		
 	trail.update_trail(global_position)
 	
