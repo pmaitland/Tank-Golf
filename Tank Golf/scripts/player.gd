@@ -27,12 +27,12 @@ func _physics_process(delta):
 		club.rotation += clamp(mouse_position.y / 1000.0, -PI/2.0, PI/2.0)
 			
 	if can_act:
+		ball.global_position = ball_source.global_position
 		ball_source.look_at(mouse_position)
 		var ball_velocity = (mouse_position - ball_source.global_position).normalized() * clampf((mouse_position - ball_source.global_position).length() * 2, -2000, 2000)
 		trajectory.update_trajectory(ball_source.global_position, ball_velocity, gravity, delta)
 		
 		if Input.is_action_just_pressed("ui_accept"):
-			ball.global_position = ball_source.global_position
 			ball.velocity = ball_velocity
 			trajectory.hide()
 			can_act = false

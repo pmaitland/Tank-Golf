@@ -9,19 +9,30 @@ var game: Node2D
 var player: Node2D
 var camera: Camera2D
 var trail: Line2D
+var area: Area2D
+
+var in_water = false
 
 func _ready():
 	game = get_parent()
 	player = game.find_child("player")
 	camera = game.find_child("camera")
 	trail = game.find_child("trail")
+	area  = find_child("Area2D")
 
 func _physics_process(delta):
 	if player.can_act or camera.doing_flyby:
 		return
 		
+	var resistance = 0.995
+		
+	for a in area.get_overlapping_areas():
+		if a.name == "water area":
+			resistance = 0.895
+			in_water = true
+		
 	velocity.y += gravity * delta
-	velocity *= 0.995
+	velocity *= resistance
 		
 	var collision_info = move_and_collide(velocity * delta)
 	if collision_info:
@@ -51,8 +62,10 @@ func _physics_process(delta):
 			if collision_info and collision_info.get_collider().name == "hole_bottom":
 				game.go_next_level()
 			else:
-				player.global_position = global_position
-				player.global_position.y -= (player.find_child("MeshInstance2D").mesh.size.y - find_child("MeshInstance2D").mesh.size.y) / 2.0
+				if not in_water:
+					player.global_position = global_position
+					player.global_position.y -= (player.find_child("MeshInstance2D").mesh.size.y - find_child("MeshInstance2D").mesh.size.y) / 2.0
+				in_water = false
 				player.can_act = true
 				player.trajectory.show()
 			trail.clear_points()

@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_g2xox"]
 [ext_resource type="PackedScene" uid="uid://32dqc8xtmm7x" path="res://prefabs/player.tscn" id="1_py52u"]
 [ext_resource type="PackedScene" uid="uid://dtjqg23qj7ud3" path="res://prefabs/hole.tscn" id="1_ymlti"]
-[ext_resource type="PackedScene" uid="uid://cpqc0oo3xhkxg" path="res://prefabs/levels/level_wallclimb.tscn" id="2_j7e55"]
+[ext_resource type="PackedScene" uid="uid://cmokq000twltn" path="res://prefabs/levels/level_flat.tscn" id="2_d6poq"]
 [ext_resource type="PackedScene" uid="uid://cx5p0qorxqwar" path="res://prefabs/ball.tscn" id="3_jracu"]
 [ext_resource type="Script" path="res://scripts/camera.gd" id="5_08liv"]
 [ext_resource type="Script" path="res://scripts/trail.gd" id="5_dndwn"]
@@ -18,7 +18,7 @@ colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 1)
 [node name="game" type="Node2D"]
 script = ExtResource("1_g2xox")
 
-[node name="level" parent="." instance=ExtResource("2_j7e55")]
+[node name="level" parent="." instance=ExtResource("2_d6poq")]
 
 [node name="hole" parent="." instance=ExtResource("1_ymlti")]
 position = Vector2(-1277, -1686)

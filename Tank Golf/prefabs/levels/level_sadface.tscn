@@ -2,11 +2,11 @@
 
 [ext_resource type="TileSet" uid="uid://cmwo4mfumr6g" path="res://dirt.tres" id="1_7oxrt"]
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_esrr2"]
-[ext_resource type="PackedScene" uid="uid://bqsaex02t4ev0" path="res://prefabs/levels/level_threesteps.tscn" id="2_w34cf"]
+[ext_resource type="PackedScene" uid="uid://dlmfojkwi718c" path="res://prefabs/levels/level_pond.tscn" id="2_78wrh"]
 
 [node name="level" type="Node2D"]
 script = ExtResource("1_esrr2")
-next_level_scene = ExtResource("2_w34cf")
+next_level_scene = ExtResource("2_78wrh")
 
 [node name="background" type="TileMap" parent="."]
 modulate = Color(0.647059, 0.647059, 0.647059, 1)
